@@ -12,6 +12,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'PpLight';
+  src: url('../src/assets/fonts/Pplight.otf') ;
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 @import "tailwindcss";
@@ -19,6 +25,7 @@
 @theme {
   --font-ginger: Ginger, sans-serif;
   --font-pp: Pp, sans-serif;
+  --font-ppLight: PpLight, sans-serif;
 }
 
 

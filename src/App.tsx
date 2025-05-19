@@ -16,7 +16,7 @@ function App() {
       <Header />
       {/* Main content */}
       <main className="flex-1 flex flex-col items-center justify-start text-center p-28  ">
-        <div className="mb-2 text-white/70 italic text-sm font-ginger">Mat Carlsen Chess Club</div>
+        <div className="mb-2 text-white/60 text-[16px] font-ppLight italic">Mat Carlsen Chess Club</div>
         <h1 className="text-white  font-ginger tracking-wide  mb-2 font-weight-400 text-[140px] uppercase leading-[0.9]">
           CAVALIER<br />NOIR
         </h1>
@@ -33,6 +33,14 @@ function App() {
           <button className="bg-black/70 text-white px-[32px] text-[24px] py-[10px] rounded-[8px] hover:bg-black/90">About the club</button>
         </div>
       </main>
+      {/* Footer social links */}
+      <footer className="w-full flex justify-center pb-4">
+        <div className="text-white/70 flex gap-6 text-sm items-center">
+          <a href="#" className="hover:text-white transition-colors duration-150 font-ppLight text-[16px]">↘ Youtube</a>
+          <a href="#" className="hover:text-white transition-colors duration-150 font-ppLight text-[16px]">↘ Instagram</a>
+          <a href="#" className="hover:text-white transition-colors duration-150 font-ppLight text-[16px]">↘ Facebook</a>
+        </div>
+      </footer>
     </div>
   )
 }
