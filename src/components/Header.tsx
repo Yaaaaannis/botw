@@ -10,22 +10,22 @@ const navLinks = [
 ];
 
 const Header = () => (
-  <header className="w-full flex justify-center pt-3 pb-2 px-6">
-    <div className="w-full max-w-screen-xl flex items-center justify-between" style={{height: 40}}>
+  <header className="w-full flex justify-center pt-3 pb-2">
+    <div className="w-full max-w-screen flex items-center justify-between px-4 " style={{height: 40}}>
       {/* Logo texte à gauche */}
-      <div className="flex items-center" style={{width: 120}}>
-        <span className="text-white text-lg font-semibold font-inter" style={{width: 120}}>Logo</span>
+      <div className="flex items-center justify-start" style={{width: 60}}>
+        <span className="text-white font-semibold font-inter text-[12px]" style={{width: 120}}>Logo</span>
       </div>
       {/* Navigation à droite avec SVG */}
       <nav className="flex-1 flex justify-end">
-        <ul className="flex gap-8 text-xs text-white/80 font-inter items-center">
+        <ul className="flex gap-10 text-xs text-white/80 font-inter items-center ">
           {navLinks.map(link => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-white transition-colors duration-150">{link.label}</a>
+              <a href={link.href} className="hover:text-white transition-colors duration-150 font-inter text-[12px] ">{link.label}</a>
             </li>
           ))}
           <li>
-            <img src={logo} alt="Logo SVG" className="h-8 w-8 ml-6" />
+            <img src={logo} alt="Logo SVG" className="h-8 w-8  ml-24" />
           </li>
         </ul>
       </nav>
