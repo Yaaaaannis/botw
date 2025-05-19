@@ -9,7 +9,7 @@ function App() {
         backgroundImage: `
 
           linear-gradient(180deg, rgba(0,0,0,0) 68.85%, #000 100%),
-          url(/src/assets/bg.png)
+          url(/bg.png)
         `
       }}
     >
