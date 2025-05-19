@@ -1,4 +1,8 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const initialImages = [
   { src: '/pion.png', alt: 'Chess main' },
@@ -9,6 +13,78 @@ const initialImages = [
 
 const About = () => {
   const [images, setImages] = useState(initialImages);
+  const aboutRef = useRef<HTMLElement>(null);
+ 
+  useEffect(() => {
+    // Configuration de base pour ScrollTrigger
+    if (!aboutRef.current) return;
+    const aboutSection = aboutRef.current;
+    
+    // Animation des statistiques
+    const statsElements = aboutSection.querySelectorAll('.about-fade');
+    statsElements.forEach((el: Element, index: number) => {
+      gsap.fromTo(el,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: "top center",
+            end: "+=300",
+            toggleActions: "play none none none"
+          },
+          delay: index * 0.2
+        }
+      );
+    });
+
+    // Animation des miniatures
+    const thumbs = aboutSection.querySelectorAll('.about-thumb');
+    thumbs.forEach((thumb: Element, index: number) => {
+      gsap.fromTo(thumb,
+        { x: 100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: aboutSection,
+            start: "top center",
+            end: "+=300",
+            toggleActions: "play none none none"
+          },
+          delay: 0.3 + (index * 0.15)
+        }
+      );
+    });
+
+    // Animation de l'image principale
+    gsap.fromTo('.about-main-img',
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: aboutSection,
+          start: "top center",
+          end: "+=300",
+          toggleActions: "play none none none"
+        },
+        delay: 0.2
+      }
+    );
+
+    return () => {
+      // Nettoyage des ScrollTriggers
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   // Fonction pour échanger la grande image avec une petite
   const handleImageClick = (idx: number) => {
@@ -20,15 +96,15 @@ const About = () => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-black text-white flex flex-col items-stretch justify-start px-0 pt-4 pb-0">
+    <section ref={aboutRef} className="w-full min-h-screen bg-black text-white flex flex-col items-stretch justify-start px-0 pt-4 pb-0">
       {/* Header */}
 
       {/* Contenu principal */}
       <div className="flex flex-1 items-start justify-end w-full px-8 pt-24 pb-0">
         {/* Colonne gauche : texte */}
-        <div className="flex-1 flex flex-col justify-between pl-[24px]  pt-2 pb-8 h-full">
+        <div className="flex-1 flex flex-col justify-between pl-[24px] pt-2 pb-8 h-full">
           {/* Stats */}
-          <div className="mb-8">
+          <div className="mb-8 about-fade">
             <div className="flex flex-col gap-2 mb-16 mt-2">
               <div>
                 <span className="font-semibold font-pp text-[18px]">25</span>
@@ -44,20 +120,20 @@ const About = () => {
               </div>
             </div>
 
-            <div className="uppercase  tracking-widest mb-8 font-ppLight leading-relaxed max-w-[450px] font-pp text-[12px]">
+            <div className="uppercase  tracking-widest mb-8 font-ppLight leading-relaxed max-w-[450px] font-pp text-[12px] about-fade">
             Founded by Mat Carlsen — the lesser-known, equally passionate (and allegedly fictional) brother of world champion Magnus Carlsen — our club was born from a desire to reimagine the chess experience.
             </div>
-            <div className="text-[12px] font-weight-[400] text-white/80 font-ppLight mb-8 leading-relaxed max-w-[450px]">
+            <div className="text-[12px] font-weight-[400] text-white/80 font-ppLight mb-8 leading-relaxed max-w-[450px] about-fade">
             Whether you're a seasoned player or just discovering the 64 squares, you're invited to think deeper, move smarter — and play with style.
             </div>
           </div>
           {/* Bas : citation et titre */}
           <div className="mt-28 mb-0">
-            <div className="italic uppercase  mb-8 mt-8 max-w-[450px] font-weight-[200] text-white/80 font-pplight text-[16px]">
+            <div className="italic uppercase  mb-8 mt-8 max-w-[450px] font-weight-[200] text-white/80 font-pplight text-[16px] about-fade">
               "Not all Carlsens aim for world titles. Some just want to make chess look good."<br/>
               <span className="not-italic font-pp">— Mat Carlsen</span>
             </div>
-            <h2 className="text-[80px] font-ginger tracking-wide uppercase flex items-center gap-4 mb-2 text-white/80 ">
+            <h2 className="text-[80px] font-ginger tracking-wide uppercase flex items-center gap-4 mb-2 text-white/80 about-fade">
               [A1] <span>About</span>
             </h2>
 
@@ -72,7 +148,7 @@ const About = () => {
                 key={img.src}
                 src={img.src}
                 alt={img.alt}
-                className="object-cover w-[114px] h-[114px] cursor-pointer transition duration-200 hover:brightness-110"
+                className="object-cover w-[114px] h-[114px] cursor-pointer transition duration-200 hover:brightness-110 about-thumb"
                 onClick={() => handleImageClick(i + 1)}
               />
             ))}
@@ -82,7 +158,7 @@ const About = () => {
             <img
               src={images[0].src}
               alt={images[0].alt}
-              className="object-cover w-[478px] h-[726px] transition duration-200"
+              className="object-cover w-[478px] h-[726px] transition duration-200 about-main-img"
             />
           </div>
         </div>
