@@ -43,7 +43,7 @@ const About = () => {
 
     // Animation des miniatures
     const thumbs = aboutSection.querySelectorAll('.about-thumb');
-    thumbs.forEach((thumb: Element, index: number) => {
+    thumbs.forEach((thumb: Element) => {
       gsap.fromTo(thumb,
         { x: 100, opacity: 0 },
         {
@@ -57,7 +57,7 @@ const About = () => {
             end: "+=300",
             toggleActions: "play none none none"
           },
-          delay: 0.3 + (index * 0.15)
+          delay: 0.3
         }
       );
     });
@@ -76,7 +76,7 @@ const About = () => {
           end: "+=300",
           toggleActions: "play none none none"
         },
-        delay: 0.2
+        delay: 0.1
       }
     );
 
