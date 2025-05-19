@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Ginger';
+    src: url('../src/assets/fonts/Ginger.ttf') ;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Pp';
+    src: url('../src/assets/fonts/Pp.otf') ;
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+@import "tailwindcss";
+
+
