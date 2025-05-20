@@ -138,7 +138,7 @@ const News = () => {
             options={{
               type: 'slide',
               perPage: 2.5,
-              gap: '1rem',
+              gap: '1',
               pagination: false,
               arrows: false,
               drag: 'free',
