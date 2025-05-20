@@ -19,6 +19,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'PpBold';
+  src: url('../src/assets/fonts/Ppbold.otf') ;
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 @import "tailwindcss";
 
@@ -26,6 +33,7 @@
   --font-ginger: Ginger, sans-serif;
   --font-pp: Pp, sans-serif;
   --font-ppLight: PpLight, sans-serif;
+  --font-ppBold: PpBold, sans-serif;
 }
 
 

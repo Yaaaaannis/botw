@@ -96,11 +96,11 @@ const About = () => {
   };
 
   return (
-    <section ref={aboutRef} className="w-full min-h-screen bg-black text-white flex flex-col items-stretch justify-start px-0 pt-4 pb-0">
+    <section ref={aboutRef} className="w-full min-h-screen bg-black text-white flex flex-col items-stretch justify-start px-0 pt-0 pb-16">
       {/* Header */}
 
       {/* Contenu principal */}
-      <div className="flex flex-1 items-start justify-end w-full px-8 pt-24 pb-0">
+      <div className="flex flex-1 items-start justify-end w-full px-8 pt-18 pb-0">
         {/* Colonne gauche : texte */}
         <div className="flex-1 flex flex-col justify-between pl-[24px] pt-2 pb-8 h-full">
           {/* Stats */}

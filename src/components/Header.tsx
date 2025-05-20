@@ -3,8 +3,8 @@ import logo from '../assets/svg.svg';
 
 const navLinks = [
   { label: '[A1] ABOUT', href: '#about' },
-  { label: '[B1] LEARN', href: '#learn' },
-  { label: '[C1] NEWS', href: '#news' },
+  { label: '[B1] NEWS', href: '#news' },
+  { label: '[C1] LEARN', href: '#learn' },
   { label: '[D1] CONTACT', href: '#contact' },
   { label: '[E1] JOIN US', href: '#join' },
 ];
