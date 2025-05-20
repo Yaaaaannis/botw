@@ -68,7 +68,7 @@ const Learn: React.FC = () => {
                   {cellContent && (
                     <div className="absolute inset-0 p-1.5">
                       <div className="w-[98px] h-[95px] m-[6px] flex flex-col justify-between">
-                        <span className="text-[13px] leading-5 font-ppLight font-light">
+                        <span className="text-[13px] leading-5 font-ppLight font-light max-w-[93px]">
                           {cellContent.title}
                         </span>
                         <div className="flex items-end">
