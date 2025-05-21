@@ -1,5 +1,4 @@
 import React from 'react';
-import queenImage from '/king.png';
 
 interface CellContent {
   position: string;
@@ -29,13 +28,17 @@ const Learn: React.FC = () => {
   return (
     <div className="flex min-h-screen bg-black text-white">
       {/* Left section */}
-      <div className="flex-1 px-8 pt-8">
+      <div className="flex-1 px-8 pt-8 mt-40  " >
         <div className="">
-          <img 
-            src={queenImage} 
-            alt="Chess Queen" 
-            className="w-full max-w-md"
-          />
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full"
+          >
+            <source src="/queens.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="space-y-6">
           
