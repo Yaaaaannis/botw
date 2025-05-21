@@ -113,7 +113,7 @@ const News = () => {
     <section ref={newsRef} className="w-full min-h-screen bg-white text-black flex flex-col justify-between pl-[24px] pt-12 mt-40">
       <div className="flex h-full">
         {/* Colonne gauche (1/3) */}
-        <div className="w-1/3 flex flex-col justify-between pl-[24px] pt-12">
+        <div className="w-1/3 flex flex-col justify-between pl-[24px] pt-12 relative z-10">
           <div /> {/* Spacer */}
           
           <div className="flex flex-col gap-8 pt-80">
@@ -121,7 +121,7 @@ const News = () => {
               Stay in the loop.
             </h2>
             <p className="text-black/60 max-w-[400px] text-[16px] font-inter leading-relaxed news-text">
-            Our News section keeps you connected to the heartbeat of the club. Discover upcoming tournaments, recent victories, new masterclasses, and behind-the-scenes insights into our growing chess community. Whether you're a member or a curious enthusiast, this is where strategy meets story.
+              Our News section keeps you connected to the heartbeat of the club. Discover upcoming tournaments, recent victories, new masterclasses, and behind-the-scenes insights into our growing chess community. Whether you're a member or a curious enthusiast, this is where strategy meets story.
             </p>
           </div>
 
@@ -133,7 +133,7 @@ const News = () => {
         </div>
 
         {/* Carousel (2/3) */}
-        <div className="w-2/3 pl-8 pt-0">
+        <div className="w-2/3 pl-8 pt-0 overflow-visible z-20">
           <Splide
             options={{
               type: 'slide',
@@ -143,11 +143,17 @@ const News = () => {
               arrows: false,
               drag: 'free',
               snap: false,
+              trimSpace: false,
+              focus: 0,
+              start: 0,
+              direction: 'ltr',
               width: '100%',
-              focus: 'center',
-             
+              overflow: 'visible',
+              dragMinThreshold: 10,
+              flickMaxPages: 3,
+              speed: 800,
             }}
-            className="news-carousel"
+            className="news-carousel overflow-visible"
           >
             {newsItems.map((item) => (
               <SplideSlide key={item.id} className="relative">

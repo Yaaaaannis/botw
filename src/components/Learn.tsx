@@ -66,30 +66,32 @@ const Learn: React.FC = () => {
                   className="border border-white/10 relative group"
                 >
                   {cellContent && (
-                    <div className="absolute inset-0 p-1.5">
-                      <div className="w-[98px] h-[95px] m-[6px] flex flex-col justify-between">
-                        <span className="text-[13px] leading-5 font-ppLight font-light max-w-[93px]">
-                          {cellContent.title}
-                        </span>
-                        <div className="flex items-end">
-                          <span 
-                            className="text-[32px] leading-[40px] font-ginger uppercase"
-                            style={{ flex: '1' }}
-                          >
-                            {cellContent.position}
-                          </span>
-                          <span className="text-[19px] leading-7 font-ppLight font-light px-2">
-                            ↘
-                          </span>
-                        </div>
-                      </div>
+                    <>
                       <div 
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                         style={{
                           background: 'linear-gradient(180deg, rgba(103, 103, 103, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%)'
                         }}
                       />
-                    </div>
+                      <div className="absolute inset-0 p-1.5 z-10">
+                        <div className="w-[98px] h-[95px] m-[6px] flex flex-col justify-between">
+                          <span className="text-[13px] leading-5 font-ppLight font-light max-w-[93px]">
+                            {cellContent.title}
+                          </span>
+                          <div className="flex items-end">
+                            <span 
+                              className="text-[32px] leading-[40px] font-ginger uppercase"
+                              style={{ flex: '1' }}
+                            >
+                              {cellContent.position}
+                            </span>
+                            <span className="text-[19px] leading-7 font-ppLight font-light px-2">
+                              ↘
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </>
                   )}
                 </div>
               );
