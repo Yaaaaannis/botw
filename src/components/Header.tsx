@@ -1,13 +1,14 @@
 import logo from '../assets/svg.svg';
 import { useAudio } from '../context/AudioContext';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
-  { label: '[A1] ABOUT', href: '#about' },
-  { label: '[B1] NEWS', href: '#news' },
-  { label: '[C1] LEARN', href: '#learn' },
-  { label: '[D1] CONTACT', href: '#contact' },
-  { label: '[E1] JOIN US', href: '#join' },
+  { label: '[A1] ABOUT', href: '/' },
+  { label: '[B1] NEWS', href: '/' },
+  { label: '[C1] LEARN', href: '/' },
+  { label: '[D1] CONTACT', href: '/contact' },
+  { label: '[E1] JOIN US', href: '/join' },
 ];
 
 const Header = () => {
@@ -51,12 +52,21 @@ const Header = () => {
           <ul className={`flex gap-10 text-xs font-inter items-center ${textColorClass}`}>
             {navLinks.map(link => (
               <li key={link.href}>
-                <a 
-                  href={link.href} 
-                  className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
-                >
-                  {link.label}
-                </a>
+                {link.href.startsWith('/') ? (
+                  <Link 
+                    to={link.href} 
+                    className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a 
+                    href={link.href} 
+                    className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
             <li className="flex items-center gap-4">

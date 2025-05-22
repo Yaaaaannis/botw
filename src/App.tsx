@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HeroSection from './HeroSection'
 import About from './About'
 import News from './News'
@@ -6,6 +7,8 @@ import Header from './components/Header'
 import Learn from './components/Learn'
 import Loader from './components/Loader'
 import { AudioProvider } from './context/AudioContext'
+import AboutUs from './components/AboutUs'
+import Form from './components/Form'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -19,25 +22,33 @@ function App() {
       {loading ? (
         <Loader onComplete={handleLoaderComplete} />
       ) : (
-        <div className="bg-transparent">
-          <div className="fixed top-0 left-0 w-full z-50">
-            <Header />
-          </div>
-          <div className="">
-            <div className="h-[100vh] sticky top-0 z-[1]">
-              <HeroSection />
+        <Router>
+          <div className="bg-transparent">
+            <div className="fixed top-0 left-0 w-full z-50">
+              <Header />
             </div>
-            <section id="about" className="h-[100vh] sticky top-0 z-[2]">
-              <About />
-            </section>
-            <section id="news" className="h-[100vh] sticky top-0 z-[3] mt-16">
-              <News />
-            </section>
-            <section id="learn" className="h-[100vh] sticky top-0 z-[4] mt-16">
-              <Learn />
-            </section>
+            <Routes>
+              <Route path="/join" element={<AboutUs />} />
+              <Route path="/contact" element={<Form />} />
+              <Route path="/" element={
+                <div className="">
+                  <div className="h-[100vh] sticky top-0 z-[1]">
+                    <HeroSection />
+                  </div>
+                  <section id="about" className="h-[100vh] sticky top-0 z-[2]">
+                    <About />
+                  </section>
+                  <section id="news" className="h-[100vh] sticky top-0 z-[3] mt-16">
+                    <News />
+                  </section>
+                  <section id="learn" className="h-[100vh] sticky top-0 z-[4] mt-16">
+                    <Learn />
+                  </section>
+                </div>
+              } />
+            </Routes>
           </div>
-        </div>
+        </Router>
       )}
     </AudioProvider>
   );
