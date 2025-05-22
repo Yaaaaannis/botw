@@ -9,8 +9,30 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [showEnter, setShowEnter] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(1);
+  const [videosLoaded, setVideosLoaded] = useState<{ [key: number]: boolean }>({});
   const videoRef = useRef<HTMLVideoElement>(null);
   const { initializeAudio } = useAudio();
+
+  // Préchargement des vidéos
+  useEffect(() => {
+    const preloadVideo = (videoNumber: number) => {
+      const video = document.createElement('video');
+      video.src = `/${videoNumber}.mp4`;
+      video.preload = 'auto';
+      
+      video.onloadeddata = () => {
+        setVideosLoaded(prev => ({
+          ...prev,
+          [videoNumber]: true
+        }));
+      };
+    };
+
+    // Précharger toutes les vidéos
+    for (let i = 1; i <= 6; i++) {
+      preloadVideo(i);
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,16 +55,30 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
 
     const handleVideoEnd = () => {
       const nextVideo = currentVideo === 6 ? 1 : currentVideo + 1;
-      setCurrentVideo(nextVideo);
-      video.src = `/${nextVideo}.mp4`;
-      video.play().catch(error => console.log('Erreur de lecture:', error));
+      
+      // Vérifier si la prochaine vidéo est chargée
+      if (videosLoaded[nextVideo]) {
+        setCurrentVideo(nextVideo);
+        video.src = `/${nextVideo}.mp4`;
+        video.play().catch(error => console.log('Erreur de lecture:', error));
+      } else {
+        // Si la vidéo n'est pas chargée, attendre qu'elle le soit
+        const checkVideoLoaded = setInterval(() => {
+          if (videosLoaded[nextVideo]) {
+            clearInterval(checkVideoLoaded);
+            setCurrentVideo(nextVideo);
+            video.src = `/${nextVideo}.mp4`;
+            video.play().catch(error => console.log('Erreur de lecture:', error));
+          }
+        }, 100);
+      }
     };
 
     video.addEventListener('ended', handleVideoEnd);
     return () => {
       video.removeEventListener('ended', handleVideoEnd);
     };
-  }, [currentVideo]);
+  }, [currentVideo, videosLoaded]);
 
   const handleEnterClick = () => {
     initializeAudio();

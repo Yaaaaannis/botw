@@ -27,15 +27,15 @@ function App() {
             <div className="h-[100vh] sticky top-0 z-[1]">
               <HeroSection />
             </div>
-            <div className="h-[100vh] sticky top-0 z-[2] ">
+            <section id="about" className="h-[100vh] sticky top-0 z-[2]">
               <About />
-            </div>
-            <div className="h-[100vh] sticky top-0 z-[3] mt-16">
+            </section>
+            <section id="news" className="h-[100vh] sticky top-0 z-[3] mt-16">
               <News />
-            </div>
-            <div className="h-[100vh] sticky top-0 z-[4] mt-16">
+            </section>
+            <section id="learn" className="h-[100vh] sticky top-0 z-[4] mt-16">
               <Learn />
-            </div>
+            </section>
           </div>
         </div>
       )}
