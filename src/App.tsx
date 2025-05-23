@@ -9,6 +9,7 @@ import Loader from './components/Loader'
 import { AudioProvider } from './context/AudioContext'
 import AboutUs from './components/AboutUs'
 import Form from './components/Form'
+import Contact from './components/Contact'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -41,8 +42,11 @@ function App() {
                   <section id="news" className="h-[100vh] sticky top-0 z-[3] mt-16">
                     <News />
                   </section>
-                  <section id="learn" className="h-[100vh] sticky top-0 z-[4] mt-16">
+                  <section id="learn" className=" h-[100vh] sticky top-0 z-[4] mt-16">
                     <Learn />
+                  </section>
+                  <section id="contact" className="h-[100vh] sticky top-0 z-[5] mt-16">
+                    <Contact />
                   </section>
                 </div>
               } />
