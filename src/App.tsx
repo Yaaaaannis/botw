@@ -10,6 +10,7 @@ import { AudioProvider } from './context/AudioContext'
 import AboutUs from './components/AboutUs'
 import Form from './components/Form'
 import Contact from './components/Contact'
+import Activities from './components/Activities'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
             <Routes>
               <Route path="/join" element={<AboutUs />} />
               <Route path="/contact" element={<Form />} />
+              <Route path="/activities" element={<Activities />} />
               <Route path="/" element={
                 <div className="">
                   <div className="h-[100vh] sticky top-0 z-[1]">
