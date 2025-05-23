@@ -47,7 +47,7 @@ const Learn: React.FC = () => {
             special strategies and essential rules. Whether you're new to the
             game or brushing up, this is where your journey begins.
           </p>
-          <h1 className=" text-[80px] pt-0 font-ginger uppercase">[C1] LEARN</h1>
+          <h1 className=" text-[80px] pt-0 font-ginger uppercase text-white/80">[C1] LEARN</h1>
         </div>
       </div>
 

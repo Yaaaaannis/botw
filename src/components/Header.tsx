@@ -1,19 +1,21 @@
 import logo from '../assets/svg.svg';
 import { useAudio } from '../context/AudioContext';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { label: '[A1] ABOUT', href: '/' },
-  { label: '[B1] NEWS', href: '/' },
-  { label: '[C1] LEARN', href: '/' },
-  { label: '[D1] CONTACT', href: '/contact' },
-  { label: '[E1] JOIN US', href: '/join' },
+  { label: '[A1] ABOUT', href: 'about' },
+  { label: '[B1] NEWS', href: 'news' },
+  { label: '[C1] LEARN', href: 'learn' },
+  { label: '[D1] CONTACT', href: 'contact' },
+  { label: '[E1] JOIN US', href: 'join' },
 ];
 
 const Header = () => {
   const { isPlaying, togglePlay } = useAudio();
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +42,24 @@ const Header = () => {
   const isNewsSection = activeSection === 'news' || activeSection === 'activities' || activeSection === 'contact';
   const textColorClass = isNewsSection ? 'text-black' : 'text-white';
 
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (href === 'join') {
+      navigate('/join');
+      return;
+    }
+    if (location.pathname !== '/') {
+      navigate('/', { replace: false });
+      setTimeout(() => {
+        const el = document.getElementById(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="w-full flex justify-center pt-3 pb-2">
       <div className="w-full max-w-screen flex items-center justify-between px-4" style={{height: 40}}>
@@ -56,21 +76,13 @@ const Header = () => {
           <ul className={`flex gap-10 text-xs font-inter items-center ${textColorClass}`}>
             {navLinks.map(link => (
               <li key={link.href}>
-                {link.href.startsWith('/') ? (
-                  <Link 
-                    to={link.href} 
-                    className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a 
-                    href={link.href} 
-                    className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
-                  >
-                    {link.label}
-                  </a>
-                )}
+                <a
+                  href={link.href === 'join' ? '/join' : `#${link.href}`}
+                  onClick={handleNavClick(link.href)}
+                  className={`hover:opacity-80 transition-colors duration-150 font-inter text-[12px] ${textColorClass}`}
+                >
+                  {link.label}
+                </a>
               </li>
             ))}
             <li className="flex items-center gap-4">

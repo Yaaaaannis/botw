@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router-dom';
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -128,7 +130,15 @@ const About = () => {
             </div>
           </div>
           {/* Bas : citation et titre */}
-          <div className="mt-28 mb-0">
+          <div className="mt-2 mb-0">
+            <div className="flex flex-col gap-4 mb-12">
+              <Link to="/join" className="text-white text-[24px] font-bold font-pp flex items-center gap-2 hover:underline transition-all">
+                <span className="text-3xl">↘</span> Membership price
+              </Link>
+              <Link to="/activities" className="text-white text-[24px] font-bold font-pp flex items-center gap-2 hover:underline transition-all">
+                <span className="text-3xl">↘</span> Club activities
+              </Link>
+            </div>
             <div className="italic uppercase  mb-8 mt-8 max-w-[450px] font-weight-[200] text-white/80 font-pplight text-[16px] about-fade">
               "Not all Carlsens aim for world titles. Some just want to make chess look good."<br/>
               <span className="not-italic font-pp">— Mat Carlsen</span>

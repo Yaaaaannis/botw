@@ -47,7 +47,7 @@ const AboutUs: React.FC = () => {
         {/* Titre bas gauche */}
         <div className="absolute left-8 -bottom-24">
           <span className="text-white text-[80px] font-ginger ">[E2] PRICE</span>
-        </div>
+          </div>
         {/* Bloc droit : image */}
         <div className="flex-1 flex items-center justify-center pr-16">
           <img src="/join.png" alt="Chessboard" className="object-contain max-h-[600px] w-full scale-180 pointer-events-none" />

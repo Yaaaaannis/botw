@@ -113,7 +113,7 @@ const News = () => {
     <section ref={newsRef} className="w-full min-h-screen bg-white text-black flex flex-col justify-between pl-[24px] pt-12 mt-40">
       <div className="flex h-full">
         {/* Colonne gauche (1/3) */}
-        <div className="w-1/3 flex flex-col justify-between pl-[24px] pt-12 relative z-10">
+        <div className="w-1/3 flex flex-col justify-between pl-[24px] pt-12 relative z-0">
           <div /> {/* Spacer */}
           
           <div className="flex flex-col gap-8 pt-80">

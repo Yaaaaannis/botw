@@ -55,7 +55,7 @@ const Activities: React.FC = () => {
           </p>
         </div>
         <div className="mb-2">
-          <span className="text-black text-[56px] font-ginger">[E3] ACTIVITIES</span>
+          <span className="text-black text-[80px] font-ginger">[E3] ACTIVITIES</span>
         </div>
       </div>
       {/* Partie droite : cartes scrollables */}

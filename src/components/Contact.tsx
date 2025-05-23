@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
       <div className="absolute top-60 right-8 text-right text-[20px] font-inter">
         <div className="mb-2">CHESS CLUB STOCKHOLM<br />KUNGSGATAN 45, 3TR<br />111 56 STOCKHOLM<br />SWEDEN</div>
         <div className="mb-2">XX XX XX XX 08</div>
-        <div className="mb-2">CONTACT@CHEVALIERNOIRCHESS.COM</div>
+        <div className="mb-2">CONTACT@CAVALIERNOIRCHESS.COM</div>
       </div>
       {/* Logo central stylisé */}
       <div className="flex flex-col items-center justify-end flex-1">
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
           <div className="relative w-full flex flex-col items-center">
             <div className="flex flex-col items-center w-full">
               <span className="font-ginger text-[200px]   leading-none select-none">
-                CHEVALIER NOIR
+                CAVALIER NOIR
               </span>
               {/* Ligne centrale avec 3 textes et traits entre eux, le tout sur fond blanc */}
               <div className="absolute left-0 right-0 top-1/2 flex items-center justify-between bg-white px-20 py-3 z-20" style={{transform: 'translateY(-50%)'}}>
