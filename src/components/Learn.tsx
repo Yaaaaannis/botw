@@ -66,7 +66,9 @@ const Learn: React.FC = () => {
                     width: '110.6px',
                     height: '108px'
                   }}
-                  className="border border-white/10 relative group"
+                  className={`relative group ${
+                    colIndex === 0 ? 'border-l border-white/10' : ''
+                  } ${rowIndex === 0 ? 'border-t border-white/10' : ''} border-r border-b border-white/10`}
                 >
                   {cellContent && (
                     <>

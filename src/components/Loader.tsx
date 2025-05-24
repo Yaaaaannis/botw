@@ -60,7 +60,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black z-50 flex flex-col">
+    <div className="fixed inset-0 bg-black z-50 flex flex-col" style={{ backgroundImage: 'url(/gridloader.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       {/* Logo en haut à gauche */}
       <div className="absolute top-8 left-8">
         <div className="flex flex-col leading-none pl-[24px]">
@@ -91,7 +91,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
           <div className="flex justify-center mb-4">
             <button
               onClick={handleEnterClick}
-              className="bg-white text-black px-8 font-pp py-2 font-ppbold text-[24px] tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2"
+              className="bg-white text-black px-8 font-pp py-2 font-ppbold text-[24px] tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2 rounded-[8px]"
             >
               <span className="text-[24px] font-ppbold">♞</span> ENTER
             </button>

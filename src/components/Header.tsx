@@ -85,14 +85,20 @@ const Header = () => {
                 </a>
               </li>
             ))}
-            <li className="flex items-center gap-4">
+            <li className="flex items-center ">
               <button
                 onClick={togglePlay}
                 className={`hover:opacity-80 transition-colors duration-150 ${textColorClass}`}
               >
                 {isPlaying ? 'ON' : 'OFF'}
               </button>
-              <img src={logo} alt="Logo SVG" className={`h-8 w-8 ml-4 ${isNewsSection ? 'invert' : ''}`} />
+              {isPlaying ? (
+                <img src={logo} alt="Logo SVG" className={`h-8 w-8 ml-4 ${isNewsSection ? 'invert' : ''}`} />
+              ) : (
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="">
+                  <path d="M30 19.8499C30 20.2641 29.6642 20.5999 29.25 20.5999H14.75C14.3358 20.5999 14 20.2641 14 19.8499C14 19.4356 14.3358 19.0999 14.75 19.0999H29.25C29.6642 19.0999 30 19.4356 30 19.8499Z" fill="currentColor"/>
+                </svg>
+              )}
             </li>
           </ul>
         </nav>

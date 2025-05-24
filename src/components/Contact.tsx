@@ -67,11 +67,11 @@ const Contact: React.FC = () => {
         <div className="w-full flex flex-col items-center justify-center">
           <div className="relative w-full flex flex-col items-center">
             <div className="flex flex-col items-center w-full">
-              <span className="font-ginger text-[200px]   leading-none select-none">
+              <span className="font-ginger text-[230px]   leading-none select-none">
                 CAVALIER NOIR
               </span>
               {/* Ligne centrale avec 3 textes et traits entre eux, le tout sur fond blanc */}
-              <div className="absolute left-0 right-0 top-1/2 flex items-center justify-between bg-white px-20 py-3 z-20" style={{transform: 'translateY(-50%)'}}>
+              <div className="absolute left-0 right-0 top-[40%] flex items-center justify-between bg-white px-20 py-3 z-20" style={{transform: 'translateY(-50%)'}}>
                 <span className="text-[16px] font-ppLight font-bold whitespace-nowrap">(Mat Carlsen Chess Club)</span>
                 <div className="flex-1 h-[1px] bg-black  mx-2" />
                 <span className="text-[16px] font-ppLight font-bold whitespace-nowrap">(Mat Carlsen Chess Club)</span>
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
       {/* Footer contact */}
       <div className="flex items-center justify-between w-full px-8 ">
         <div className="font-ginger text-[80px] ">[DI] CONTACT</div>
-        <div className="font-ppLight text-[20px] text-black/60 text-center w-full absolute left-0 right-0 mx-auto bottom-8">MADE BY OCTALISE &amp; YAAAANNIS</div>
+        <div className="font-ppLight text-[16px] text-black/60 text-center w-full absolute left-0 right-0 mx-auto bottom-8">MADE BY OCTALISE &amp; YAAAANNIS</div>
       </div>
     </section>
   );
