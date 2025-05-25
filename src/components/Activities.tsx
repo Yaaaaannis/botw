@@ -18,7 +18,7 @@ const activities = [
     desc: 'Review your games and learn from your mistakes with others.'
   },
   {
-    img: '/4.png',
+    img: '/Ratedtournament.png',
     title: 'Rated Tournaments',
     desc: 'Participation in official rated tournaments.'
   },

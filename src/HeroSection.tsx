@@ -1,10 +1,25 @@
 import './App.css'
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const HeroSection = () => {
   const bgRef = useRef(null)
+  const navigate = useNavigate()
+
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/', { replace: false });
+    setTimeout(() => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        window.scrollTo({
+          top: aboutSection.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
 
   useEffect(() => {
     gsap.fromTo(
@@ -133,7 +148,12 @@ const HeroSection = () => {
 </svg>
 </span> Join us
             </Link>
-            <button className="cta-btn bg-black/70 text-white px-[24px] sm:px-[32px] text-[18px] sm:text-[24px] lg:text-[26px] xl:text-[28px] 2xl:text-[30px] py-[10px] rounded-[8px] hover:bg-black/90 font-pp">About the club</button>
+            <button 
+              onClick={handleAboutClick}
+              className="cta-btn bg-black/70 text-white px-[24px] sm:px-[32px] text-[18px] sm:text-[24px] lg:text-[26px] xl:text-[28px] 2xl:text-[30px] py-[10px] rounded-[8px] hover:bg-black/90 font-pp"
+            >
+              About the club
+            </button>
           </div>
         </main>
         {/* Footer social links */}
