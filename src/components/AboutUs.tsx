@@ -38,7 +38,7 @@ const AboutUs: React.FC = () => {
             </div>
             {/* Bouton Join us juste sous les prix */}
             <div className="mt-8 flex justify-start ml-115">
-              <button onClick={() => navigate('/activities')} className="bg-white text-black py-3 px-10 rounded font-pp text-[22px] font-bold flex items-center gap-2 shadow hover:opacity-90 transition-opacity">
+              <button onClick={() => navigate('/contact')} className="bg-white text-black py-3 px-10 rounded font-pp text-[22px] font-bold flex items-center gap-2 shadow hover:opacity-90 transition-opacity">
                 <span className="text-[22px]">♞</span> Join us
               </button>
             </div>
